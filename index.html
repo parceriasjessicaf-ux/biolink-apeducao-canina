@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <title>BioLink APEducação Canina</title>
+  <meta name="description" content="BioLink APEducação Canina - Bio Link">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/hero/2167f884-5d70-48ed-ab08-7818da093d24.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/cards/a7d5cb69-4b8f-4ef6-9b14-c9210e9601bb.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/cards/9c7df330-b86c-4304-8bfd-96886debd24c.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/cards/01734bc2-3876-44ef-89c7-1f3eb54fe4b1.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/cards/699affd2-b5ce-4735-9d82-776768c2910f.png" fetchpriority="high">
+  <style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+body { min-height: 100vh; min-height: 100dvh; background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url(https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/button-backgrounds/5a814caf-dfc3-4407-92aa-f4068a5d396a.png); background-size: cover; background-position: center;  font-family: sans-serif; color: #FFFFFF; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+.hero-canva img { max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+.container { max-width: 390px; margin: 0 auto; padding: 16px; min-height: 100vh; min-height: 100dvh; }
+@media (max-width: 480px) { .container { max-width: 100%; } }
+.section-block { width: calc(100% + 32px); margin-left: -16px; margin-right: -16px; }
+.section-inner { max-width: 390px; margin: 0 auto; padding: 0 16px; }
+
+/* Lazy Image Styles */
+.lazy-img-wrapper { position: relative; overflow: hidden; }
+.lazy-img-placeholder { 
+  position: absolute; 
+  inset: 0; 
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.05) 100%);
+  background-size: 200% 200%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+.lazy-img-placeholder.loaded { opacity: 0; pointer-events: none; }
+.lazy-img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  opacity: 0; 
+  transition: opacity 0.25s ease-out; 
+}
+.lazy-img.loaded { opacity: 1; }
+/* Critical images (above the fold) - instant display */
+.lazy-img.eager-load { opacity: 1; }
+.lazy-img.eager-load + .lazy-img-placeholder { display: none; }
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Entry Animation Styles - Dynamic Duration: 350ms */
+
+.animate-block {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 350ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 350ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.animate-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animate-block.hero-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .lazy-img-placeholder { animation: none; }
+  .lazy-img { transition: none; opacity: 1; }
+  .animate-block { opacity: 1; transform: none; transition: none; }
+}
+
+.hero-canva { position: relative; width: 100%; }
+.hero-frame { position: relative; width: 100%; overflow: hidden; }
+.hero-bg { width: 100%; height: 100%; min-height: 320px; display: block; object-position: center; }
+.hero-fade { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.hero-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.hero-content { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; justify-content: center; width: 100%; pointer-events: none; }
+.hero-left { align-items: flex-start; text-align: left; padding: 0 24px; }
+.hero-center { align-items: center; text-align: center; padding: 0 24px; }
+.hero-right { align-items: flex-end; text-align: right; padding: 0 24px; }
+.hero-compact { padding-top: 32px; padding-bottom: 32px; }
+.hero-normal { padding-top: 64px; padding-bottom: 64px; }
+.hero-spacious { padding-top: 96px; padding-bottom: 96px; }
+.hero-title { margin-bottom: 12px; line-height: 1.2; }
+.hero-subtitle { opacity: 0.9; max-width: 320px; line-height: 1.6; }
+
+.card-split { display: flex; overflow: hidden; position: relative; }
+.card-split.no-image { display: block; }
+.card-imageLeft { flex-direction: row; }
+.card-imageRight { flex-direction: row-reverse; }
+.card-image-wrapper { position: relative; width: 40%; aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; }
+.card-image { width: 100%; height: 100%; display: block; }
+.card-image-fade { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.card-content { flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.card-content.full-width { width: 100%; }
+.card-title { margin-bottom: 4px; }
+.card-desc { color: #B1B1B1; margin-bottom: 12px; white-space: pre-wrap; word-break: break-word; }
+.card-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; transition: all 0.2s ease; border: none; flex-shrink: 0; align-self: flex-start; }
+.card-button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+.cta-whatsapp { display: flex; align-items: center; gap: 16px; margin: 16px 12px; padding: 16px; background: #1A002E; border-radius: 16px; }
+.cta-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: white; }
+.cta-icon img { width: 28px; height: 28px; object-fit: contain; }
+.cta-icon svg { width: 24px; height: 24px; }
+.cta-content { flex: 1; min-width: 0; }
+.cta-content h4 { margin-bottom: 2px; }
+.cta-content p { }
+.cta-button { padding: 12px 16px; border-radius: 8px; transition: all 0.2s ease; flex-shrink: 0; }
+.cta-button:hover { transform: scale(1.03); box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35); }
+
+.faq-accordion { margin: 16px 12px; }
+.faq-item { transition: all 0.2s ease; }
+.faq-question { width: 100%; padding: 16px; background: none; border: none; font-size: 14px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: color 0.2s ease; cursor: pointer; }
+.faq-question:hover { opacity: 0.8; }
+.faq-icon { font-size: 20px; font-weight: 300; transition: transform 0.3s ease; flex-shrink: 0; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; }
+.faq-answer p { font-size: 14px; line-height: 1.6; padding: 0 16px; }
+.faq-item.open .faq-answer { max-height: 500px; padding-bottom: 16px; }
+
+.footer { padding: 32px 24px; text-align: center; }
+.footer p { font-size: 12px; color: #B1B1B1; }
+
+.footer-empty { transition: all 0.2s ease; }
+.footer-empty-link { transition: opacity 0.2s ease; }
+.footer-empty-link:hover { opacity: 0.8; text-decoration: underline; }
+
+.mini-cta-pill { transition: all 0.2s ease; cursor: pointer; }
+.mini-cta-pill:hover { opacity: 0.9; transform: translateY(-1px); }
+
+.image-only-container { transition: all 0.2s ease; }
+.image-only-container:hover { transform: scale(1.01); }
+
+@media (max-width: 480px) {
+  .card-image-wrapper { width: 35%; }
+  .card-content { padding: 12px; }
+}
+
+@media (max-width: 320px) {
+  .card-split:not(.no-image) { flex-direction: column !important; }
+  .card-image-wrapper { width: 100%; height: 160px; aspect-ratio: auto; }
+  .cta-whatsapp { flex-wrap: wrap; }
+  .cta-button { width: 100%; text-align: center; margin-top: 8px; }
+}
+  </style>
+</head>
+<body>
+  <div class="container" style="display: flex; flex-direction: column; gap: 12px; padding: 0 16px 0 16px;">
+<div class="animate-block hero-block" data-block-type="HeroCanva">
+    <div class="hero-canva" style="position: relative; width: calc(100% + 32px); margin-left: -16px; margin-right: -16px; margin-top: 0; margin-bottom: 12px; min-height: 320px;">
+      <div class="hero-frame" style="position: relative; width: 100%; min-height: 320px; max-height: 420px; overflow: hidden; border-radius: 0;">
+        <img src="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/hero/2167f884-5d70-48ed-ab08-7818da093d24.png" alt="" class="hero-bg" loading="eager" fetchpriority="high" decoding="sync" style="object-fit: cover; object-position: 50% 50%; transform: translate(-30px, -122px) scale(1.3); transform-origin: center center;">
+        <div class="hero-fade" style="background: linear-gradient(to bottom, transparent 65%, #ffffff 100%);"></div>
+        <div class="hero-overlay" style="background: #000000; opacity: 0; border-radius: 0;"></div>
+        <div class="hero-content hero-center hero-normal" style="">
+          <h1 class="hero-title" style="position: relative; font-family: Anton, sans-serif; font-weight: 600; font-style: normal; font-size: clamp(28px, 8vw, 36px); text-decoration: none; text-transform: none; line-height: 1.2; white-space: pre-wrap; word-break: break-word; text-align: left; margin-bottom: 12px; transform: translate(0px, 181px);"><span aria-hidden="true" style="position: absolute; inset: 0; transform: none; color: transparent; text-shadow: -6px 2px 3px #00000024; pointer-events: none; font-family: Anton, sans-serif; font-weight: 600; font-style: normal; font-size: clamp(28px, 8vw, 36px); text-decoration: none; text-transform: none; line-height: 1.2; white-space: pre-wrap; word-break: break-word; text-align: left;">Seu pet precisa de</span><span style="background-image: linear-gradient(to right, #0038d1, #131a30, #0036cc, #131a30); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; display: inline-block; width: 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; position: relative; display: inline-block; width: 100%;">Seu pet precisa de</span></h1>
+          <p class="hero-subtitle" style="position: relative; font-family: sans-serif, sans-serif; font-weight: 700; font-style: normal; font-size: 41px; text-decoration: none; text-transform: none; line-height: 1.6; white-space: pre-wrap; word-break: break-word; text-align: left; opacity: 0.9; max-width: 320px; transform: translate(1px, 158px);"><span aria-hidden="true" style="position: absolute; inset: 0; transform: none; color: transparent; text-shadow: 5px 4px 3px #00000052; pointer-events: none; font-family: sans-serif, sans-serif; font-weight: 700; font-style: normal; font-size: 41px; text-decoration: none; text-transform: none; line-height: 1.6; white-space: pre-wrap; word-break: break-word; text-align: left;">CUIDADO<span class="tapio-inline-icon" style="display:inline-flex;align-items:center;margin:0 0.1em;vertical-align:-0.25em;width:1.4em;height:1.4em;line-height:1;"><svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24" style="display:inline;vertical-align:-0.25em;width:1.4em;height:1.4em"><defs><linearGradient id="heart-grad" x1="12" y1="3" x2="12" y2="22" gradient-units="userSpaceOnUse"><stop offset="0" stop-color="#FF5252"/><stop offset="1" stop-color="#D50000"/></linearGradient></defs><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#heart-grad)"/><ellipse cx="8" cy="8" rx="2.5" ry="1.5" fill="#FF8A80" opacity="0.5" transform="rotate(-30 8 8)"/></svg></span></span><span style="color: #ffbb00; position: relative;">CUIDADO<span class="tapio-inline-icon" style="display:inline-flex;align-items:center;margin:0 0.1em;vertical-align:-0.25em;width:1.4em;height:1.4em;line-height:1;"><svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24" style="display:inline;vertical-align:-0.25em;width:1.4em;height:1.4em"><defs><linearGradient id="heart-grad" x1="12" y1="3" x2="12" y2="22" gradient-units="userSpaceOnUse"><stop offset="0" stop-color="#FF5252"/><stop offset="1" stop-color="#D50000"/></linearGradient></defs><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#heart-grad)"/><ellipse cx="8" cy="8" rx="2.5" ry="1.5" fill="#FF8A80" opacity="0.5" transform="rotate(-30 8 8)"/></svg></span></span></p>
+        </div>
+      </div>
+    </div></div>
+<div class="animate-block" data-block-type="TextBlock">
+    <div class="text-block-wrapper" style="margin: 16px 0 16px 0; padding: 0 16px;">
+      <p style="color: #0f4798; text-shadow: 0px 4px 3px #0000004a; text-align: center; font-size: 27px; font-weight: 700; line-height: 1.5; font-family: Poppins, sans-serif; font-style: normal; text-decoration: none; text-transform: none; white-space: pre-wrap; word-break: break-word; margin: 0; text-indent: 0;">MEUS LINKS ↓</p>
+    </div></div>
+<div style="position:relative;"><div class="animate-block" data-block-type="CardSplit">
+    <div class="card-split-wrapper" style="position: relative; width: 100%; margin: 12px auto; overflow: visible;">
+      
+      <div class="card-split card-imageLeft" style="background: linear-gradient(to right, #1E40AF, #06B6D4);  border-radius: 16px; box-shadow: 0 12px 32px rgba(0,0,0,0.3); min-height: 170px; position: relative; border: 2px solid #7C3AED; overflow: hidden;">
+        
+        
+          <div class="card-image-wrapper lazy-img-wrapper">
+            
+            <img src="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/cards/a7d5cb69-4b8f-4ef6-9b14-c9210e9601bb.png" alt="" class="card-image lazy-img eager-load" loading="eager" fetchpriority="high" decoding="sync" style="object-fit: cover; object-position: 50% 50%; transform: scale(1); transform-origin: 50% 50%; position: relative; z-index: 1; border-radius: 0px;">
+            
+          </div>
+        <div class="card-content" style="position: relative; z-index: 3;">
+           <h3 class="card-title" style="font-family: Montserrat, sans-serif; font-weight: 700; font-style: normal; font-size: 20px; text-decoration: none; text-transform: none; color: #F5D742;  white-space: pre-wrap; word-break: break-word; text-align: left;">Adestramento
+Intensivo</h3>
+           <p class="card-desc" style="font-family: sans-serif, sans-serif; font-weight: 400; font-style: normal; font-size: 12px; text-decoration: none; text-transform: none; color: #FFFFFF;  text-align: left;">Programa completo de educação e correção comportamental</p>
+          
+        </div>
+      </div>
+      
+      
+    </div></div><div style="position:absolute;z-index:10;right:0px;top:-12px;"><span style="background: linear-gradient(to right, #1E40AF, #06B6D4);  color:#FFFFFF;border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,0.2);padding:6px 16px;display:inline-flex;align-items:center;gap:6px;font-family:sans-serif;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;"><span style="font-size:16px;line-height:1;"><span class="tapio-inline-icon" style="display:inline-flex;align-items:center;margin:0 0.1em;vertical-align:-0.25em;width:1.4em;height:1.4em;line-height:1;"><svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24" style="display:inline;vertical-align:-0.25em;width:1.4em;height:1.4em"><defs><linearGradient id="heart-grad" x1="12" y1="3" x2="12" y2="22" gradient-units="userSpaceOnUse"><stop offset="0" stop-color="#FF5252"/><stop offset="1" stop-color="#D50000"/></linearGradient></defs><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#heart-grad)"/><ellipse cx="8" cy="8" rx="2.5" ry="1.5" fill="#FF8A80" opacity="0.5" transform="rotate(-30 8 8)"/></svg></span></span><span>Feito com amor</span></span></div></div>
+<div style="position:relative;"><div class="animate-block" data-block-type="CardSplit">
+    <div class="card-split-wrapper" style="position: relative; width: 100%; margin: 12px auto; overflow: visible;">
+      
+      <div class="card-split card-imageLeft" style="background: linear-gradient(to right, #1E40AF, #06B6D4);  border-radius: 16px; box-shadow: 0 12px 32px rgba(0,0,0,0.3); min-height: 170px; position: relative; border: 2px solid #7C3AED; overflow: hidden;">
+        
+        
+          <div class="card-image-wrapper lazy-img-wrapper">
+            
+            <img src="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/cards/9c7df330-b86c-4304-8bfd-96886debd24c.png" alt="" class="card-image lazy-img eager-load" loading="eager" fetchpriority="high" decoding="sync" style="object-fit: cover; object-position: 50% 50%; transform: scale(1); transform-origin: 50% 50%; position: relative; z-index: 1; border-radius: 0px;">
+            
+          </div>
+        <div class="card-content" style="position: relative; z-index: 3;">
+           <h3 class="card-title" style="font-family: Montserrat, sans-serif; font-weight: 700; font-style: normal; font-size: 20px; text-decoration: none; text-transform: none; color: #F5D742;  white-space: pre-wrap; word-break: break-word; text-align: left;">Adestramento
+Presencial</h3>
+           <p class="card-desc" style="font-family: sans-serif, sans-serif; font-weight: 400; font-style: normal; font-size: 12px; text-decoration: none; text-transform: none; color: #FFFFFF;  text-align: left;">Treinamento realizado no ambiente do próprio cão, com participação ativa do tutor.</p>
+          
+        </div>
+      </div>
+      
+      
+    </div></div><div style="position:absolute;z-index:10;right:0px;top:-12px;"><span style="background: linear-gradient(to right, #1E40AF, #06B6D4);  color:#FFFFFF;border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,0.2);padding:6px 16px;display:inline-flex;align-items:center;gap:6px;font-family:sans-serif;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;"><span style="font-size:16px;line-height:1;"><span class="tapio-inline-icon" style="display:inline-flex;align-items:center;margin:0 0.1em;vertical-align:-0.25em;width:1.4em;height:1.4em;line-height:1;"><svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24" style="display:inline;vertical-align:-0.25em;width:1.4em;height:1.4em"><path d="M3 10.5L12 3l9 7.5V20a2 2 0 01-2 2H5a2 2 0 01-2-2V10.5z" fill="#FF8A65"/><path d="M12 3l9 7.5" fill="none" stroke="#D84315" stroke-width="1"/><path d="M12 3l-9 7.5" fill="none" stroke="#D84315" stroke-width="1"/><rect x="9" y="14" width="6" height="8" rx="0.5" fill="#5D4037"/><rect x="10" y="15" width="1.5" height="2" fill="#FFE082"/></svg></span></span><span>Feito na sua casa</span></span></div></div>
+<div style="position:relative;"><div class="animate-block" data-block-type="CardSplit">
+    <div class="card-split-wrapper" style="position: relative; width: 100%; margin: 12px auto; overflow: visible;">
+      
+      <div class="card-split card-imageLeft" style="background: linear-gradient(to right, #1E40AF, #06B6D4);  border-radius: 16px; box-shadow: 0 12px 32px rgba(0,0,0,0.3); min-height: 170px; position: relative; border: 2px solid #7C3AED; overflow: hidden;">
+        
+        
+          <div class="card-image-wrapper lazy-img-wrapper">
+            
+            <img src="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/cards/01734bc2-3876-44ef-89c7-1f3eb54fe4b1.png" alt="" class="card-image lazy-img eager-load" loading="eager" fetchpriority="high" decoding="sync" style="object-fit: contain; object-position: 89% 0%; transform: scale(1.3); transform-origin: 89% 0%; position: relative; z-index: 1; border-radius: 0px;">
+            
+          </div>
+        <div class="card-content" style="position: relative; z-index: 3;">
+           <h3 class="card-title" style="font-family: Montserrat, sans-serif; font-weight: 700; font-style: normal; font-size: 26px; text-decoration: none; text-transform: none; color: #F5D742;  white-space: pre-wrap; word-break: break-word; text-align: left;">Localização</h3>
+           <p class="card-desc" style="font-family: sans-serif, sans-serif; font-weight: 400; font-style: normal; font-size: 12px; text-decoration: none; text-transform: none; color: #FFFFFF;  text-align: left;">Cidade de Araruama
+Rio de Janeiro</p>
+          
+        </div>
+      </div>
+      
+      
+        <div class="extra-image" style="position: absolute; left: 258px; top: 83px; width: 85px; height: 70px; transform: scale(1); transform-origin: 0 0; z-index: 20; pointer-events: none; overflow: hidden; border-radius: 8px; box-shadow: none; background: transparent;">
+          <img src="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/extra-images/11909a7b-ee82-420f-87cc-916551b607ea.png" alt="" style="width: 100%; height: 100%; object-fit: cover; transform: scale(1); transform-origin: center; display: block;">
+        </div>
+    </div></div><div style="position:absolute;z-index:10;right:0px;top:-12px;"><span style="background: linear-gradient(to right, #1E40AF, #06B6D4);  color:#FFFFFF;border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,0.2);padding:6px 16px;display:inline-flex;align-items:center;gap:6px;font-family:sans-serif;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;"><span style="font-size:16px;line-height:1;"><span class="tapio-inline-icon" style="display:inline-flex;align-items:center;margin:0 0.1em;vertical-align:-0.25em;width:1.4em;height:1.4em;line-height:1;"><svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24" style="display:inline;vertical-align:-0.25em;width:1.4em;height:1.4em"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#EF5350"/><circle cx="12" cy="9" r="3" fill="#fff"/></svg></span></span><span>Abra no google maps</span></span></div></div>
+<div style="position:relative;"><div class="animate-block" data-block-type="CardSplit">
+    <div class="card-split-wrapper" style="position: relative; width: 100%; margin: 12px auto; overflow: visible;">
+      
+      <div class="card-split card-imageLeft" style="background: linear-gradient(to right, #1E40AF, #06B6D4);  border-radius: 16px; box-shadow: 0 12px 32px rgba(0,0,0,0.3); min-height: 170px; position: relative; border: 2px solid #7C3AED; overflow: hidden;">
+        
+        
+          <div class="card-image-wrapper lazy-img-wrapper">
+            
+            <img src="https://mlwywdyrvneqxvycmaba.supabase.co/storage/v1/object/public/biolink-images/cards/699affd2-b5ce-4735-9d82-776768c2910f.png" alt="" class="card-image lazy-img eager-load" loading="eager" fetchpriority="high" decoding="sync" style="object-fit: contain; object-position: 100% 22%; transform: scale(1.3); transform-origin: 100% 22%; position: relative; z-index: 1; border-radius: 0px;">
+            
+          </div>
+        <div class="card-content" style="position: relative; z-index: 3;">
+           <h3 class="card-title" style="font-family: Montserrat, sans-serif; font-weight: 700; font-style: normal; font-size: 25px; text-decoration: none; text-transform: none; color: #F5D742;  white-space: pre-wrap; word-break: break-word; text-align: left;">Fale comigo</h3>
+           <p class="card-desc" style="font-family: sans-serif, sans-serif; font-weight: 400; font-style: normal; font-size: 25px; text-decoration: none; text-transform: none; color: #FFFFFF;  text-align: left;">No whatsapp</p>
+          
+        </div>
+      </div>
+      
+      
+    </div></div><div style="position:absolute;z-index:10;right:0px;top:-12px;"><span style="background: linear-gradient(to right, #1E40AF, #06B6D4);  color:#FFFFFF;border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,0.2);padding:6px 16px;display:inline-flex;align-items:center;gap:6px;font-family:sans-serif;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;"><span style="font-size:16px;line-height:1;"><span class="tapio-inline-icon" style="display:inline-flex;align-items:center;margin:0 0.1em;vertical-align:-0.25em;width:1.4em;height:1.4em;line-height:1;"><svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24" style="display:inline;vertical-align:-0.25em;width:1.4em;height:1.4em"><circle cx="12" cy="12" r="10" fill="#4CAF50"/><path d="M16.5 14.8c-.3-.2-1.4-.7-1.6-.8s-.4-.1-.5.1c-.2.2-.6.8-.7.9s-.3.2-.5.1c-.3-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6s0-.4.1-.5l.4-.4c.1-.1.2-.2.2-.4s0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.4c.1.2 1.7 2.6 4.1 3.6.6.2 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.3-.2-.5-.3z" fill="#fff"/></svg></span></span><span>Nos chame no Wahtsapp</span></span></div></div>
+<div class="animate-block" data-block-type="Footer">
+    <div style="margin-top: 0px; margin-bottom: 0px;">
+      <footer class="footer" style="background-color: #1d46b1;  margin-left: -16px; margin-right: -16px; padding: 24px 32px; text-align: center;">
+        <p style="color: #B1B1B1; font-family: sans-serif; font-size: 0.75rem; font-weight: 400; font-style: normal; text-decoration: none; text-transform: none; margin: 0;">© 2025 NOME E SOBRENOME | TODOS OS DIREITOS RESERVADOS.</p>
+      </footer>
+    </div></div>
+  </div>
+  <script>
+(function() {
+  'use strict';
+  
+  // Animation config
+  var ANIM_BASE_DELAY = 60;
+  var ANIM_SCOPE = 'all';
+  
+  // ========== LAZY IMAGE LOADING ==========
+  // Handles lazy loading with placeholder and fade-in
+  function initLazyImages() {
+    var lazyImages = document.querySelectorAll('.lazy-img');
+    
+    lazyImages.forEach(function(img) {
+      // Skip eager-load images (already visible)
+      if (img.classList.contains('eager-load')) {
+        img.classList.add('loaded');
+        var placeholder = img.parentElement.querySelector('.lazy-img-placeholder');
+        if (placeholder) placeholder.classList.add('loaded');
+        return;
+      }
+      
+      // Handle already loaded images
+      if (img.complete && img.naturalWidth > 0) {
+        img.classList.add('loaded');
+        var placeholder = img.parentElement.querySelector('.lazy-img-placeholder');
+        if (placeholder) placeholder.classList.add('loaded');
+        return;
+      }
+      
+      // Add load handler
+      img.addEventListener('load', function() {
+        img.classList.add('loaded');
+        var placeholder = img.parentElement.querySelector('.lazy-img-placeholder');
+        if (placeholder) placeholder.classList.add('loaded');
+      });
+    });
+  }
+  
+  // ========== ENTRY ANIMATIONS ==========
+  // IntersectionObserver for staggered entrance animations
+  function initEntryAnimations() {
+    var blocks = document.querySelectorAll('.animate-block');
+    if (!blocks.length) return;
+    
+    // Check for reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      blocks.forEach(function(b) { b.classList.add('visible'); });
+      return;
+    }
+    
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var block = entry.target;
+          var delay = parseInt(block.getAttribute('data-delay')) || 0;
+          setTimeout(function() {
+            block.classList.add('visible');
+          }, delay);
+          observer.unobserve(block);
+        }
+      });
+    }, { rootMargin: '120px', threshold: 0 });
+    
+    var animIndex = 0;
+    blocks.forEach(function(block) {
+      // Hero blocks animate immediately
+      if (block.classList.contains('hero-block')) {
+        block.classList.add('visible');
+        return;
+      }
+      // Calculate stagger delay using config (max 600ms)
+      var delay = Math.min(animIndex * ANIM_BASE_DELAY, 600);
+      block.setAttribute('data-delay', delay);
+      observer.observe(block);
+      animIndex++;
+    });
+  }
+  
+  // ========== FAQ ACCORDION ==========
+  document.querySelectorAll('.faq-item .faq-question').forEach(function(button) {
+    button.addEventListener('click', function() {
+      var item = this.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+  
+  // ========== SMOOTH SCROLL ==========
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+  
+  // ========== CAROUSEL ==========
+  window.carouselState = {};
+  document.querySelectorAll('.carousel-container').forEach(function(c) {
+    var slides = c.querySelectorAll('.carousel-slide');
+    window.carouselState[c.id] = { index: 0, total: slides.length };
+  });
+  window.moveCarousel = function(id, dir) {
+    var s = window.carouselState[id]; if (!s) return;
+    s.index = (s.index + dir + s.total) % s.total;
+    var t = document.querySelector('#' + id + ' .carousel-track');
+    if (t) t.style.transform = 'translateX(-' + (s.index * 100) + '%)';
+    document.querySelectorAll('#' + id + ' .carousel-dots button').forEach(function(d, i) {
+      d.style.background = i === s.index ? 'white' : 'rgba(255,255,255,0.5)';
+    });
+  };
+  window.goToSlide = function(id, idx) {
+    var s = window.carouselState[id]; if (!s) return;
+    s.index = idx;
+    var t = document.querySelector('#' + id + ' .carousel-track');
+    if (t) t.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    document.querySelectorAll('#' + id + ' .carousel-dots button').forEach(function(d, i) {
+      d.style.background = i === idx ? 'white' : 'rgba(255,255,255,0.5)';
+    });
+  };
+  // Autoplay logic for exported carousel
+  document.querySelectorAll('.carousel-container[data-autoplay="true"]').forEach(function(c) {
+    var speed = parseInt(c.getAttribute('data-autoplay-speed')) || 3000;
+    var loop = c.getAttribute('data-loop') === 'true';
+    var slides = c.querySelectorAll('.carousel-slide');
+    if (slides.length <= 1) return;
+    setInterval(function() {
+      var s = window.carouselState[c.id];
+      if (!s) return;
+      if (loop) {
+        s.index = (s.index + 1) % s.total;
+      } else if (s.index < s.total - 1) {
+        s.index++;
+      }
+      var t = c.querySelector('.carousel-track');
+      if (t) t.style.transform = 'translateX(-' + (s.index * 100) + '%)';
+      c.querySelectorAll('.carousel-dots button').forEach(function(d, i) {
+        d.style.background = i === s.index ? 'white' : 'rgba(255,255,255,0.5)';
+      });
+    }, speed);
+  });
+  
+  // ========== EMAIL FORM ==========
+  window.handleEmailSubmit = function(e, destEmail, subject) {
+    e.preventDefault();
+    var form = e.target;
+    var name = form.querySelector('[name="name"]').value;
+    var email = form.querySelector('[name="email"]').value;
+    var message = form.querySelector('[name="message"]').value;
+    var body = 'Nome: ' + name + '%0D%0AEmail: ' + email + '%0D%0A%0D%0AMensagem:%0D%0A' + encodeURIComponent(message);
+    window.location.href = 'mailto:' + destEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + body;
+  };
+  
+  // ========== INIT ON DOM READY ==========
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      initLazyImages();
+      initEntryAnimations();
+    });
+  } else {
+    initLazyImages();
+    initEntryAnimations();
+  }
+})();
+  </script>
+</body>
+</html>
